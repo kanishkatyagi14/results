@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Secrets - never commit these
+.env
+
+# Program output
+output/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

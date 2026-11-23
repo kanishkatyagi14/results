@@ -1,0 +1,11 @@
+test_code,test_name,sex,low,high,unit,critical_low,critical_high
+HGB,Hemoglobin,M,13.5,17.5,g/dL,7.0,20.0
+HGB,Hemoglobin,F,12.0,15.5,g/dL,7.0,20.0
+WBC,White Blood Cell Count,A,4.0,11.0,10^3/uL,2.0,30.0
+PLT,Platelet Count,A,150,450,10^3/uL,20,1000
+GLU,Glucose (Fasting),A,70,99,mg/dL,50,400
+CREAT,Creatinine,M,0.7,1.3,mg/dL,,7.0
+CREAT,Creatinine,F,0.6,1.1,mg/dL,,7.0
+K,Potassium,A,3.5,5.1,mmol/L,2.5,6.5
+NA,Sodium,A,135,145,mmol/L,120,160
+TSH,Thyroid Stimulating Hormone,A,0.4,4.0,mIU/L,,
