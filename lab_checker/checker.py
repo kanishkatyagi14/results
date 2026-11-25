@@ -25,7 +25,10 @@ def parse_value(raw):
     Hint: float() raises ValueError on bad text. Use try/except.
     """
     # TODO: Task 2
-    raise NotImplementedError("Task 2: write parse_value")
+    try:
+        return float(raw)
+    except (ValueError, TypeError):
+        return None
 
 
 def classify(value, low, high, critical_low=None, critical_high=None):
@@ -39,7 +42,19 @@ def classify(value, low, high, critical_low=None, critical_high=None):
       5. otherwise     -> NORMAL   (so a value EQUAL to low or high is NORMAL)
     """
     # TODO: Task 2
-    raise NotImplementedError("Task 2: write classify")
+    if critical_low is not None and value < critical_low:
+        return CRITICAL_LOW
+
+    if critical_high is not None and value > critical_high:
+        return CRITICAL_HIGH
+
+    if value < low:
+        return LOW
+
+    if value > high:
+        return HIGH
+
+    return NORMAL
 
 
 # ---------------------------------------------------------------- Task 4
