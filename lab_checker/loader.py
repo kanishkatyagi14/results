@@ -1,6 +1,7 @@
+
 """Task 1: Read CSV files into Python lists."""
 
-import csv  # noqa: F401  (you will need this)
+import csv
 
 
 def load_csv(path):
@@ -16,5 +17,17 @@ def load_csv(path):
 
     Hint: look up csv.DictReader and the "with open(...)" pattern.
     """
-    # TODO: Task 1
-    raise NotImplementedError("Task 1: write load_csv")
+    rows = []
+
+    with open(path, mode="r", newline="", encoding="utf-8") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            cleaned_row = {
+                key: (value or "").strip()
+                for key, value in row.items()
+            }
+
+            rows.append(cleaned_row)
+
+    return rows

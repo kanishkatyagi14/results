@@ -9,21 +9,51 @@ FLAGGED_COLUMNS = ["result_id", "patient_id", "patient_name", "test_code",
 
 
 def summarize(checked):
-    """Count how many results got each flag.
+    """Count how many results got each flag."""
 
+    counts = {}
+
+    for row in checked:
+        flag = row["flag"]
+
+        if flag not in counts:
+            counts[flag] = 0
+
+        counts[flag] += 1
+
+    return counts
+    """
         summarize(checked) -> {"NORMAL": 16, "LOW": 5, ...}
     """
     # TODO: Task 4
-    raise NotImplementedError("Task 4: write summarize")
+  
 
 
 def flagged_only(checked):
     """Return only the rows whose flag is NOT NORMAL (keep the same order)."""
     # TODO: Task 4
-    raise NotImplementedError("Task 4: write flagged_only")
+    return [
+        row for row in checked
+        if row["flag"] != NORMAL
+    ]
+    
+
 
 
 def write_flagged_csv(checked, path):
+    """Write the non-NORMAL rows to a CSV file."""
+
+    flagged = flagged_only(checked)
+
+    with open(path, "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=FLAGGED_COLUMNS
+        )
+
+        writer.writeheader()
+        writer.writerows(flagged)
+
     """Write the non-NORMAL rows to a CSV file.
 
     - Header = FLAGGED_COLUMNS
@@ -32,7 +62,7 @@ def write_flagged_csv(checked, path):
     Hint: csv.DictWriter
     """
     # TODO: Task 4
-    raise NotImplementedError("Task 4: write write_flagged_csv")
+   
 
 
 # ------------------------------------------------------------------
